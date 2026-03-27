@@ -1,74 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mening sayt</title>
+  <title>Mini O'yin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       font-family: Arial;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: linear-gradient(135deg, #141e30, #243b55);
       color: white;
       text-align: center;
     }
 
-    .container {
-      margin-top: 100px;
-    }
-
     h1 {
-      font-size: 32px;
+      margin-top: 20px;
     }
 
-    p {
-      opacity: 0.8;
+    #score {
+      font-size: 24px;
+      margin: 10px;
+    }
+
+    #gameArea {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background: rgba(255,255,255,0.1);
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .ball {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: #00ffcc;
+      border-radius: 50%;
+      cursor: pointer;
     }
 
     button {
-      margin-top: 20px;
-      padding: 15px 30px;
+      margin-top: 10px;
+      padding: 10px 20px;
       border: none;
       border-radius: 10px;
       background: #00ffcc;
       color: black;
       font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #00ccaa;
-      transform: scale(1.05);
-    }
-
-    .card {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      margin: 20px;
-      border-radius: 15px;
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h1>🔥 Mening Zamonaviy Saytim</h1>
-  <p>Bu endi oddiy emas 😎</p>
+<h1>🎮 Mini O'yin</h1>
+<div id="score">Score: 0</div>
+<button onclick="startGame()">Boshlash</button>
 
-  <button onclick="alert('🔥 Ishlayapti!')">Bos</button>
+<div id="gameArea"></div>
 
-  <div class="card">
-    <h3>📱 Responsive</h3>
-    <p>Telefon uchun mos</p>
-  </div>
+<script>
+let score = 0;
+let gameInterval;
 
-  <div class="card">
-    <h3>⚡ Tez</h3>
-    <p>Vercelda ishlayapti</p>
-  </div>
+function startGame() {
+  score = 0;
+  document.getElementById("score").innerText = "Score: " + score;
 
-</div>
+  clearInterval(gameInterval);
+  gameInterval = setInterval(createBall, 800);
+}
+
+function createBall() {
+  const gameArea = document.getElementById("gameArea");
+
+  const ball = document.createElement("div");
+  ball.classList.add("ball");
+
+  ball.style.top = Math.random() * 350 + "px";
+  ball.style.left = Math.random() * (window.innerWidth - 50) + "px";
+
+  ball.onclick = function () {
+    score++;
+    document.getElementById("score").innerText = "Score: " + score;
+    ball.remove();
+  };
+
+  gameArea.appendChild(ball);
+
+  setTimeout(() => {
+    ball.remove();
+  }, 1000);
+}
+</script>
 
 </body>
 </html>
