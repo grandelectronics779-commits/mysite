@@ -2,9 +2,73 @@
 <html>
 <head>
   <title>Mening sayt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    p {
+      opacity: 0.8;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      background: #00ffcc;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00ccaa;
+      transform: scale(1.05);
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      margin: 20px;
+      border-radius: 15px;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Salom bu mening sayt!</h1>
-  <button onclick="alert('Ishlayapti🔥')">Bos</button>
+
+<div class="container">
+  <h1>🔥 Mening Zamonaviy Saytim</h1>
+  <p>Bu endi oddiy emas 😎</p>
+
+  <button onclick="alert('🔥 Ishlayapti!')">Bos</button>
+
+  <div class="card">
+    <h3>📱 Responsive</h3>
+    <p>Telefon uchun mos</p>
+  </div>
+
+  <div class="card">
+    <h3>⚡ Tez</h3>
+    <p>Vercelda ishlayapti</p>
+  </div>
+
+</div>
+
 </body>
 </html>
